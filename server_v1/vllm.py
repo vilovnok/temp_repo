@@ -45,10 +45,7 @@ def run():
         # "--tokenizer",  "./merged-prompt-injection-model",
         # "--gpu-memory-utilization", str(cfg.model.gpu_memory_utilization),         
         "--port", "7779",
-        "--dtype", "float16",
-        "--sampling", 
-        "--sampling-top-p", "0.9",
-        "--sampling-top-k", "50",
+        "--dtype", "float16"
 
     ]
     subprocess.run(command)
