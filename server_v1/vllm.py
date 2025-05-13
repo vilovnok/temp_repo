@@ -46,10 +46,7 @@ def run():
         # "--gpu-memory-utilization", str(cfg.model.gpu_memory_utilization),         
         "--port", "7779",
         "--dtype float16",
-        "--sampling", 
-        "--trust-remote-code",
-        "--sampling-top-p", "0.9",
-        "--sampling-top-k", "50",
+
 
     ]
     subprocess.run(command)
