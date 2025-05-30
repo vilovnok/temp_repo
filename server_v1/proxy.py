@@ -30,6 +30,7 @@ async def chat_completions_proxy(request: ChatRequest):
     last_user_msg = next((msg.content for msg in reversed(request.messages) if msg.role == "user"), "")
 
     full_messages = build_prompt(last_user_msg)
+    print(full_messages)
     payload = {
         "model": request.model,
         "messages": full_messages,
@@ -40,7 +41,11 @@ async def chat_completions_proxy(request: ChatRequest):
     async with httpx.AsyncClient(timeout=360.0) as client:
         vllm_response = await client.post(url, json=payload)
 
-    return vllm_response.json()
+    json = vllm_response.json()
+    print('*'*100)
+    print(json['choices'][0]['message']['content'])
+    print('*'*100)
+    return json
 
 if __name__ == "__main__":
-    uvicorn.run("proxy:app", host="0.0.0.0", port=8000, reload=True)
+    uvicorn.run("server_v1.proxy:app", host="0.0.0.0", port=8000, reload=True)

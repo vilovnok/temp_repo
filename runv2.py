@@ -1,26 +1,27 @@
 import subprocess
 from huggingface_hub import login
 
-from peft import PeftModel
+import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 
 def run():        
     
     login(token="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")    
-    model_id = "r1char9/sft-prompt-2-prompt-injection"
-    save_path = "./sft-prompt-injection-model"
-
-    model = AutoModelForCausalLM.from_pretrained(model_id, device_map="auto", trust_remote_code=True)
-    tokenizer = AutoTokenizer.from_pretrained(model_id)
+    model_id = "r1char9/demo"
+    save_path = "./sft"
+    
+    tokenizer = AutoTokenizer.from_pretrained(model_id, padding_side="right", truncation=True)
+    model = AutoModelForCausalLM.from_pretrained("r1char9/demo", device_map="auto", 
+                                                 torch_dtype=torch.float32, low_cpu_mem_usage=True).to("cuda")
 
     model.save_pretrained(save_path)
     tokenizer.save_pretrained(save_path)
 
     command = [
         "python", "-m", "vllm.entrypoints.openai.api_server",
-        "--model",  "./sft-prompt-injection-model",
-        "--tokenizer",  "./sft-prompt-injection-model",
+        "--model",  "./sft",
+        "--tokenizer",  "./sft",
         "--port", "7779",
         "--dtype float16"
         "--trust-remote-code"
