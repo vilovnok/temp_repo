@@ -12,7 +12,7 @@ def run():
     save_path = "./sft"
     
     tokenizer = AutoTokenizer.from_pretrained(model_id, padding_side="right", truncation=True)
-    model = AutoModelForCausalLM.from_pretrained("r1char9/demo", device_map="auto", 
+    model = AutoModelForCausalLM.from_pretrained(model_id, device_map="auto", 
                                                  torch_dtype=torch.float32, low_cpu_mem_usage=True).to("cuda")
 
     model.save_pretrained(save_path)
