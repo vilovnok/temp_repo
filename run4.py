@@ -39,8 +39,8 @@ def run():
         "--model",  "./stage1-v1",
         "--tokenizer",  "./stage1-v1",
         "--port", "7779",
-        "--dtype float16"
-        " --trust-remote-code"
+        # "--dtype float16"
+        # " --trust-remote-code"
     ]
     subprocess.run(command)
 
