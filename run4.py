@@ -14,7 +14,7 @@ def run():
     adapter_id = "r1char9/Oblivion2.5-1.5B-v1"
     compute_dtype = getattr(torch, "float16")
 
-    tokenizer = AutoTokenizer.from_pretrained(model_id)
+    tokenizer = AutoTokenizer.from_pretrained(model_id, padding_side="right", truncation=True)
     bnb_config = BitsAndBytesConfig(
         load_in_4bit=True,
         bnb_4bit_use_double_quant=True,
