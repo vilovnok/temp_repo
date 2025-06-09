@@ -40,7 +40,7 @@ def run():
         "--tokenizer",  "./stage1-v1",
         "--port", "7779",
         "--dtype float16"
-        "--trust-remote-code"
+        " --trust-remote-code"
     ]
     subprocess.run(command)
 
