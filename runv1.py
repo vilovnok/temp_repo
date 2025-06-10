@@ -23,8 +23,8 @@ def run():
         "--tokenizer",  "./STAGE1-V11/",
         # "--gpu-memory-utilization", str(cfg.model.gpu_memory_utilization),         
         "--port", "7779",
-        "--dtype float16"
-        "--trust-remote-code"
+        # "--dtype float16"
+        # "--trust-remote-code"
     ]
     subprocess.run(command)
 
