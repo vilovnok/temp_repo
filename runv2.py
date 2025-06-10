@@ -30,6 +30,5 @@ def run():
     ]
     subprocess.run(command)
 
-
 if __name__ == "__main__":
     run()
