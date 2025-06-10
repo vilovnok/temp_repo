@@ -20,8 +20,10 @@ def run():
 
     command = [
         "python", "-m", "vllm.entrypoints.openai.api_server",
-        "--model",  "../STAGE2-DEMO/checkpoint-14730/",
-        "--tokenizer",  "../STAGE2-DEMO/checkpoint-14730/",
+        # "--model",  "../STAGE2-DEMO/checkpoint-14730/",
+        # "--tokenizer",  "../STAGE2-DEMO/checkpoint-14730/",
+        "--model",  "../STAGE1-V1/checkpoint-4870/",
+        "--tokenizer",  "../STAGE1-V1/checkpoint-4870/",
         "--port", "7779",
         # "--dtype", "float16 "
         # "--trust-remote-code"

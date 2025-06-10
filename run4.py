@@ -10,7 +10,7 @@ from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
 
 def run():        
     login(token="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")    
-    model_id = "Qwen/Qwen2.5-1.5B"
+    model_id = "Qwen/Qwen2.5-1.5B"    
     adapter_id = "r1char9/Oblivion2.5-1.5B-v1"
     compute_dtype = getattr(torch, "float16")
 

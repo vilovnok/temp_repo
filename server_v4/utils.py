@@ -19,13 +19,13 @@ def build_prompt(user_query: str) -> str:
     return messages
 
 
-def build_prompt(user_query: str, system_prompt: str) -> str:
-    return (
-        "<|im_start|>system\n"
-        f"{system_prompt}\n"
-        "<|im_end|>\n"
-        "<|im_start|>user\n"
-        f"User's request: {user_query}\n"
-        "<|im_end|>\n"
-        "<|im_start|>assistant\n"
-    )
+# def build_prompt(user_query: str, system_prompt: str) -> str:
+#     return (
+#         "<|im_start|>system\n"
+#         f"{system_prompt}\n"
+#         "<|im_end|>\n"
+#         "<|im_start|>user\n"
+#         f"User's request: {user_query}\n"
+#         "<|im_end|>\n"
+#         "<|im_start|>assistant\n"
+#     )
