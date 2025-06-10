@@ -10,7 +10,7 @@ def run():
     login(token="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")    
     tokenizer = AutoTokenizer.from_pretrained("Qwen/Qwen2.5-1.5B-Instruct", padding_side="right", truncation=True)
     model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen2.5-1.5B-Instruct", device_map="auto", trust_remote_code=True)
-    model = PeftModel.from_pretrained(model, "r1char9/adapter-prompt-2-prompt-injection")
+    model = PeftModel.from_pretrained(model, "r1char9/Oblivion2.5-1.5B-Instruct-v1")
 
     merged_model = model.merge_and_unload()
     save_path = "./merged-prompt-injection-model"
