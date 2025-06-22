@@ -7,7 +7,7 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 
 def run():        
     
-    login(token="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")    
+    # login(token="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")    
     tokenizer = AutoTokenizer.from_pretrained("Qwen/Qwen2.5-1.5B", padding_side="right")
     model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen2.5-1.5B", device_map="auto")
     # model = PeftModel.from_pretrained(model, "../STAGE1-V1/checkpoint-4870/")
