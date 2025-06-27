@@ -22,7 +22,7 @@ class Message(BaseModel):
 class ChatRequest(BaseModel):
     model: str
     messages: List[Message]
-    temperature: Optional[float] = 0.3
+    temperature: Optional[float] = 0.5
     max_tokens: Optional[int] = 1024
 
 @app.post("/v1/chat/completions")

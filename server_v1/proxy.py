@@ -22,7 +22,7 @@ class Message(BaseModel):
 class ChatRequest(BaseModel):
     model: str
     messages: List[Message]
-    temperature: Optional[float] = 0.3
+    temperature: Optional[float] = 0.5
     max_tokens: Optional[int] = 1024
 
 @app.post("/v1/chat/completions")
@@ -42,9 +42,9 @@ async def chat_completions_proxy(request: ChatRequest):
         vllm_response = await client.post(url, json=payload)
 
     json = vllm_response.json()
-    print('*'*100)
-    print(json['choices'][0]['message']['content'])
-    print('*'*100)
+    # print('*'*100)
+    # print(json['choices'][0]['message']['content'])
+    # print('*'*100)
     return json
 
 if __name__ == "__main__":

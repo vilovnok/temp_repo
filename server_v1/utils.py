@@ -14,6 +14,6 @@ def build_prompt(user_query: str) -> str:
     )
     messages = [
         {"role": "system", "content": system_prompt},
-        {"role": "user", "content": f"{prefix}\n\nQuery: {user_query}"},
+        {"role": "user", "content": user_query},
     ]
     return messages
